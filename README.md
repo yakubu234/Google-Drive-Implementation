@@ -4,10 +4,10 @@ a restful API written with Laravel framework and API authorization and authentic
 
 ## Installation
 
-use the [Git](https://github.com/yakubu234/patriciaInternTest.git) repository link to install patriciaInternTest
+use the [Git](https://github.com/yakubu234/heroku.git) repository link to install patriciaInternTest
 
 ```bash
-git clone https://github.com/yakubu234/patriciaInternTest.git
+git clone https://github.com/yakubu234/heroku.git
 ```
 
 run 
@@ -25,7 +25,7 @@ user registration test at tests/Feature/feature/UserTest
 
 ## usage
 
-kindly click on this [link](https://documenter.getpostman.com/view/12538701/TzY68ZWY) to view the documentation published on postman
+kindly click on this [link](https://documenter.getpostman.com/view/12538701/TzedgjjF) to view the documentation published on postman
 
 [OR]
 
@@ -66,5 +66,7 @@ DELETE     api/delete-user/{user_id}
 ```
 required bearer token to access, pass user id along with the request. returns json data with status.
 
-
-
+### the API is hosted on heroku test server @ 
+```bash
+[link](https://heroku-trial-q.herokuapp.com/)
+```

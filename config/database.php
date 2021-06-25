@@ -3,7 +3,7 @@
 use Illuminate\Support\Str;
 
 
-$DATABASE_ONLINE = parse_url (url: 'CLEARDB_DATABASE_URL');
+$DATABASE_ONLINE = parse_url (url: getenv('CLEARDB_DATABASE_URL'));
 return [
 
     /*

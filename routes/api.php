@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\GoogleDriveSignInController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,14 +16,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/register', [AuthController::class, 'register'])->name('registration');
+Route::post('register', [AuthenticationController::class, 'register']);
+Route::post('signin', [AuthenticationController::class, 'signin']);
 
-Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::group(['middleware' => ['auth:sanctum', 'blacklist']], function () {
 
-Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::get('refreshToken', [GoogleDriveSignInController::class, 'refreshGoogleAccessToken']);
 
-    Route::get('fetch-user/{user_id}',[AuthController::class,'getUserDetails'])->name('selectUser');
-    Route::put('update-user',[AuthController::class,'updateUserDetails'])->name('updateUser');
-    Route::delete('delete-user/{user_id}',[AuthController::class,'deleteUserDetails'])->name('deleteUser');
+    Route::post('upload-file', [GoogleDriveSignInController::class, 'sampleUpload']);
+    Route::get('list-file', [GoogleDriveSignInController::class, 'driveList']);
 
+    Route::get('sign-out', [AuthenticationController::class, 'logout']);
+    Route::get('getDriveResponse', [GoogleDriveSignInController::class, 'getCallbackDetails']);
+    Route::get('getDriveResponseAuth', [GoogleDriveSignInController::class, 'getDriveResponseAuth']);
 });

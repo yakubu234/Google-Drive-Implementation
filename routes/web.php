@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GoogleDriveSignInController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+#do auth with uid
+Route::get('initiate', [GoogleDriveSignInController::class, 'initiateSignin']);
+Route::get('refreshToken', [GoogleDriveSignInController::class, 'refreshGoogleAccessToken']);
+
+// Route::get('upload-form', function () {
+//     return view('upload');
+// });

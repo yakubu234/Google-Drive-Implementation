@@ -2,8 +2,6 @@
 
 use Illuminate\Support\Str;
 
-
-$DATABASE_ONLINE = parse_url (url: getenv('CLEARDB_DATABASE_URL'));
 return [
 
     /*
@@ -48,11 +46,11 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            'host' => ($DATABASE_ONLINE['host'] != null)? $DATABASE_ONLINE['host'] :env('DB_HOST', '127.0.0.1'),
-            'port' => ($DATABASE_ONLINE['port'] != null)? '' : env('DB_PORT', '3306'),
-            'database' => (ltrim($DATABASE_ONLINE['path'], '/') != null)? ltrim($DATABASE_ONLINE['path'], '/') :env('DB_DATABASE', 'forge'),
-            'username' => ($DATABASE_ONLINE['user'] != null)? $DATABASE_ONLINE['user'] :env('DB_USERNAME', 'forge'),
-            'password' => ($DATABASE_ONLINE['pass'] != null)? $DATABASE_ONLINE['pass'] :env('DB_PASSWORD', ''),
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',

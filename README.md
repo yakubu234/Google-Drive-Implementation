@@ -33,7 +33,7 @@ kindly click on this [link](https://documenter.getpostman.com/view/12538701/2s7Z
 
 ## API Endpoints
 
-### Register User
+<!-- ### Create User Account
 
 ```bash
  POST      api/register
@@ -44,9 +44,10 @@ registers the user and returns json data with the status.
 ### Login User
 
 ```bash
-POST       api/login
-```
+POST       api/signin
+``` -->
 
+<!--
 authenticates user and returns json data with status.
 
 ### Fetch User
@@ -69,7 +70,7 @@ required bearer token to update, pass raw data through body. returns json data w
 
 ```bash
 DELETE     api/delete-user/{user_id}
-```
+``` -->
 
 required bearer token to access, pass user id along with the request. returns json data with status.
 
